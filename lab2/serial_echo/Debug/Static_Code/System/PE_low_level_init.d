@@ -78,6 +78,7 @@ Static_Code/System/PE_low_level_init.o: \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h \
+ C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/board.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/pin_init.h
 
@@ -236,6 +237,8 @@ C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h:
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h:
 
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h:
+
+C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h:
 
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/board.h:
 

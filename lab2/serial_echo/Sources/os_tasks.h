@@ -43,6 +43,7 @@
 #include "myUART.h"
 #include "HandlerTask.h"
 #include "UserTask.h"
+#include "UserTask2.h"
 #include <message.h>
 
 #ifdef __cplusplus
@@ -50,13 +51,14 @@ extern "C" {
 #endif 
 
 #define HANDLER_QUEUE 8
-#define USER_QUEUE_1 9
-#define USER_QUEUE_2 10
-#define ISR_QUEUE 9
+#define USER_TO_HANDLER_QUEUE 9
+#define USER_QUEUE_1 10
+#define USER_QUEUE_2 11
+//#define ISR_QUEUE 9
 #define OUTPUT_BUF_LEN 256
 
 char output_buf[OUTPUT_BUF_LEN];
-char output_buf_idx;
+int output_buf_idx;
 
 typedef struct handler_message_t
 {
@@ -101,6 +103,17 @@ void handler_task(os_task_param_t task_init_data);
 ** ===================================================================
 */
 void user_task(os_task_param_t task_init_data);
+
+/*
+** ===================================================================
+**     Callback    : user_task_2
+**     Description : Task function entry.
+**     Parameters  :
+**       task_init_data - OS task parameter
+**     Returns : Nothing
+** ===================================================================
+*/
+void user_task_2(os_task_param_t task_init_data);
 
 /* END os_tasks */
 

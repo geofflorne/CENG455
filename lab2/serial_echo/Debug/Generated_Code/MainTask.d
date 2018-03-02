@@ -76,6 +76,7 @@ Generated_Code/MainTask.o: ../Generated_Code/MainTask.c \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h \
+ C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h \
  ../Generated_Code/MainTask.h
 
 C:/Users/geoff147/workspace/serial_echo/Sources/rtos_main_task.h:
@@ -231,5 +232,7 @@ C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h:
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h:
 
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h:
+
+C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h:
 
 ../Generated_Code/MainTask.h:

@@ -77,6 +77,7 @@ Sources/Events.o: ../Sources/Events.c \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h \
+ C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h \
  ../Sources/rtos_main_task.h ../Sources/os_tasks.h \
  C:/Users/geoff147/workspace/serial_echo/SDK/rtos/mqx/mqx/source/include/message.h \
  C:/Users/geoff147/workspace/serial_echo/SDK/rtos/mqx/mqx_stdlib/source/include/stdio.h \
@@ -239,6 +240,8 @@ C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h:
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h:
 
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h:
+
+C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h:
 
 ../Sources/rtos_main_task.h:
 

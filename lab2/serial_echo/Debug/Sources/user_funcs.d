@@ -81,7 +81,8 @@ Sources/user_funcs.o: ../Sources/user_funcs.c ../Sources/user_funcs.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/SerialTask.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h \
  C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h \
- C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h
+ C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h \
+ C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h
 
 ../Sources/user_funcs.h:
 
@@ -250,3 +251,5 @@ C:/Users/geoff147/workspace/serial_echo/Generated_Code/myUART.h:
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/HandlerTask.h:
 
 C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask.h:
+
+C:/Users/geoff147/workspace/serial_echo/Generated_Code/UserTask2.h:

@@ -82,4 +82,20 @@ void myUART_RxCallback(uint32_t instance, void * uartState) { // ISR to handle k
 	}
 
 	return;
+/*
+** ===================================================================
+**     Callback    : myUART_RxCallback
+**     Description : This callback occurs when data are received.
+**     Parameters  :
+**       instance - The UART instance number.
+**       uartState - A pointer to the UART driver state structure
+**       memory.
+**     Returns : Nothing
+** ===================================================================
+*/
+void myUART_RxCallback(uint32_t instance, void * uartState)
+{
+  /* Write your code here ... */
+}
+
 }
