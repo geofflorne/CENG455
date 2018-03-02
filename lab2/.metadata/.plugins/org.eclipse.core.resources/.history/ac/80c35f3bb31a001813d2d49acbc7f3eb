@@ -1,0 +1,28 @@
+#include "user_funcs.h"
+
+// when handler receives a character from the ISR,
+//   if user task has stream opened for reading:
+// 	   pass char to user task on its queue
+int OpenR(_queue_id stream_no) {
+
+	return 0;
+}
+
+int _getline(char* string) {
+	return 0;
+}
+
+_queue_id OpenW(int task_id) {
+	if (_try_mutex_lock(&write_mutex) != MQX_OK) {
+
+	}
+	return 0;
+}
+
+int _putline(_queue_id qid, char* string) {
+	return 0;
+}
+
+int Close() {
+	return 0;
+}

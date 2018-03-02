@@ -1,0 +1,5 @@
+void updateOutputBufferAndDisplay(char input);
+
+void printOutputBuffer();
+
+updateOutput(char input);

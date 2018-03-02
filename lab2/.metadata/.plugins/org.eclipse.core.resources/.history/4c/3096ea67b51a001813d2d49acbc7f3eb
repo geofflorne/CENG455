@@ -1,0 +1,7 @@
+#include <mqx.h>
+#include <message.h>
+#include <mutex.h>
+#include <bsp.h>
+
+MUTEX_STRUCT write_mutex;
+int task_write_permissions[]; // task_write_permissions[id] = 1 means task 1 can write

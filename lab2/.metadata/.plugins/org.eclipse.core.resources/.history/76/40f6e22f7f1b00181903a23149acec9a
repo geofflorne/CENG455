@@ -1,0 +1,121 @@
+#include "user_funcs.h"
+#include "os_tasks.h"
+
+// add self to the list of tasks with read permission
+int OpenR(_queue_id stream_no) {
+	if (_mutex_lock(&read_mutex) != MQX_OK) {
+		printf("read lock failed\n");
+		return HANDLER_QUEUE;
+	}
+
+	// give read permission to task
+
+	_mutex_unlock(&read_mutex);
+	return 0;
+}
+
+int _getline(char* string) {
+	return 0;
+}
+
+// try to grab write permission for the task with id task_id (pass own id in here)
+// if can't gain permission, then exit
+// write mutex acts as write permissions
+// since only one task can access
+_queue_id OpenW() {
+	printf("trying to lock write mutex\n");
+	_mqx_uint result = _mutex_lock(&write_mutex);
+	printf("write lock result: %u\n", result);
+	printf("MQX_OK val: %u\n", MQX_OK);
+	if (result == MQX_OK) {
+		printf("write lock obtained\n");
+		if (task_write_permission != NO_TASK) { // something is holding the write permission. return 0 (error)
+			printf("write permission already held by task %i\n", task_write_permission);
+			return 0;
+		}
+
+		task_write_permission = _task_get_id();
+
+		_mutex_unlock(&write_mutex);
+
+		return HANDLER_QUEUE; // if lock succeeds (no task is using write channel then return handler queue id
+	}
+	if (result == MQX_CANNOT_CALL_FUNCTION_FROM_ISR) {
+		printf("MQX_CANNOT_CALL_FUNCTION_FROM_ISR");
+	}
+	if (result == MQX_EBUSY) {
+		printf("MQX_EBUSY");
+	}
+	if (result == MQX_EDEADLK) {
+		printf("MQX_EDEADLK");
+	}
+	if (result == MQX_EINVAL) {
+		printf("MQX_EINVAL");
+	}
+
+	printf("error obtaining write lock for task %i\n", _task_get_id());
+	return 0; // lock could not be obtained. return 0
+}
+
+int _putline(_queue_id qid, char* string) {
+	_task_id task_id = _task_get_id();
+	char new_string[strlen(string) + 1];
+	strcat(new_string, string);
+	strcat(new_string, "\n");
+
+	if (_mutex_lock(&write_mutex) == MQX_OK) {
+		if (task_write_permission != task_id) { // something ELSE is holding the write permission.
+			printf("write permission held by other task %i when trying to putline\n", task_write_permission);
+			return 0; // FALSE
+		}
+		_mutex_unlock(&write_mutex);
+
+		// send string to handler queue
+		HANDLER_MESSAGE_PTR msg_ptr;
+		msg_ptr = (HANDLER_MESSAGE_PTR)_msg_alloc(message_pool);
+		bool result;
+
+		if (msg_ptr == NULL) {
+		   printf("\nCould not allocate a message in _putline() in task%i\n", task_id);
+		   _task_block();
+		 }
+
+		 msg_ptr->HEADER.TARGET_QID = _msgq_get_id(0, qid);
+		 msg_ptr->HEADER.SIZE = sizeof(MESSAGE_HEADER_STRUCT) + strlen((char *)msg_ptr->DATA) + 1;
+	     msg_ptr->DATA = new_string;
+		 printf("sending msg from _putline()\n");
+		 result = _msgq_send(msg_ptr);
+		 printf("msg sent\n");
+		 if (result != TRUE) {
+		   printf("\nCould not send a message\n");
+		   _task_block();
+		 }
+
+		return 1; // TRUE
+	}
+	printf("unable to obtain write lock in putline\n");
+	return 0;
+}
+
+int Close() {\
+	_task_id task_id = _task_get_id();
+
+	// release the write channel
+	if (_mutex_lock(&write_mutex) == MQX_OK) {
+		if (task_write_permission != task_id) { // something ELSE is holding the write permission.
+			printf("write permission held by other task %i\n", task_write_permission);
+			return 0; // FALSE
+		}
+
+		task_write_permission = NO_TASK;
+
+		_mutex_unlock(&write_mutex);
+
+		// release read channel permission
+		// ...
+
+		return 1; // TRUE
+	}
+
+	return 0;
+}

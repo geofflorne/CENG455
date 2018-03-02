@@ -1,0 +1,8 @@
+#include <mutex.h>
+
+MUTEX_STRUCT write_mutex;
+typedef struct write_permission_t
+{
+	MESSAGE_HEADER_STRUCT HEADER;
+	char			  	  *DATA;
+} write_permission_t, * write_permission_t;

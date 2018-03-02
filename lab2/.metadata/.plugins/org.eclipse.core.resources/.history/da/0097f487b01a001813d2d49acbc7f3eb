@@ -1,0 +1,27 @@
+#include "user_funcs.h"
+#include <message.h>
+
+// when handler receives a character from the ISR,
+//   if user task has stream opened for reading:
+// 	   pass char to user task on its queue
+int OpenR(unsigned int stream_no) {
+
+	return 0;
+}
+
+int _getline(char* string) {
+	return 0;
+}
+
+_queue_id OpenW() {
+
+	return 0;
+}
+
+int _putline(_queue_id qid, char* string) {
+	return 0;
+}
+
+int Close() {
+	return 0;
+}

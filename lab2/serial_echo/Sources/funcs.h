@@ -1,0 +1,1 @@
+void updateOutputBufferAndDisplay(char input);
