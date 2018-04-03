@@ -1,3 +1,0 @@
-#include <mutex.h>
-
-MUTEX_STRUCT write_mutex;

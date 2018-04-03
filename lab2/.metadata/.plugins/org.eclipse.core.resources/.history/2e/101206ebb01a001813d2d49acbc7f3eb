@@ -1,4 +1,0 @@
-#include <mutex.h>
-
-MUTEX_STRUCT write_mutex;
-int task_write_permissions[];
